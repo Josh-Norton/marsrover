@@ -1,16 +1,92 @@
 const assert = require('assert');
 const app = require('../app');
 
-input = `5 5
+
+describe('App', function() {
+    it('Details describe rover correctly', function() {
+        var rover = new app.Rover(3, 5, 'E');
+        var expected = '3 5 E';
+        var actual = rover.details();
+
+        assert.equal(actual, expected);
+    });
+
+    it('Rover turns right', function() {
+        var rover = new app.Rover(0, 0, 'N');
+        rover.turnRight();
+        var expected = '0 0 E';
+        var actual = rover.details();
+
+        assert.equal(actual, expected);
+    });
+
+    it('Rover turns left', function() {
+        var rover = new app.Rover(0, 0, 'N');
+        rover.turnLeft();
+        var expected = '0 0 W';
+        var actual = rover.details();
+
+        assert.equal(actual, expected);
+    });
+
+    it('Rover moves north', function() {
+        var rover = new app.Rover(0, 0, 'N');
+        rover.move();
+        var expected = '0 1 N';
+        var actual = rover.details();
+
+        assert.equal(actual, expected);
+    });
+
+    it('Rover moves east', function() {
+        var rover = new app.Rover(0, 0, 'E');
+        rover.move();
+        var expected = '1 0 E';
+        var actual = rover.details();
+
+        assert.equal(actual, expected);
+    });
+
+    it('Rover moves south', function() {
+        var rover = new app.Rover(0, 0, 'S');
+        rover.move();
+        var expected = '0 -1 S';
+        var actual = rover.details();
+
+        assert.equal(actual, expected);
+    });
+
+    it('Rover moves west', function() {
+        var rover = new app.Rover(0, 0, 'W');
+        rover.move();
+        var expected = '-1 0 W';
+        var actual = rover.details();
+
+        assert.equal(actual, expected);
+    });
+
+    it('Rover follows path', function() {
+        var rover = new app.Rover(0, 0, 'N');
+        var path = 'MMRMLM';
+        rover.followPath(path);
+        var expected = '1 3 N';
+        var actual = rover.details();
+
+        assert.equal(actual, expected);
+    });
+
+    it('Process moves rovers properly', function() {
+        var input = 
+`5 5
 1 2 N
 LMLMLMLMM
 3 3 E
 MMRMMRMRRM`;
-output = `1 3 N
+        var expected = 
+`1 3 N
 5 1 E`;
+        var actual = app.process(input);
 
-describe('App', function() {
-    it('process moves rovers properly', function() {
-        assert.equal(app.process(input), output);
+        assert.equal(actual, expected);
     });
 });

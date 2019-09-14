@@ -1,7 +1,3 @@
-module.exports = {
-    process
-}
-
 /*Compass directions mapped to degrees*/
 directions = {
     N: 0,
@@ -103,4 +99,10 @@ function process(input) {
     }
 
     return output;
+}
+
+module.exports = {
+    process,
+    Rover,
+    Plateau
 }
