@@ -1,4 +1,4 @@
-/*Class the models a plateau based on task description*/
+/*Class that models a plateau based on task description*/
 class Plateau {
     constructor(right, top) {
         this.top = top;

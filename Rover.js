@@ -25,7 +25,7 @@ class Rover {
         }
     }
 
-    /*Move 1 space forward in the curretn direction*/
+    /*Move 1 space forward in the current direction*/
     move() {
         this.x += Math.round(Math.sin(this.direction * Math.PI / 180));
         this.y += Math.round(Math.cos(this.direction * Math.PI / 180));
@@ -36,7 +36,7 @@ class Rover {
         return this.x.toString() + " " + this.y.toString() + " " + helper.getKeyByValue(directions, this.direction);
     }
 
-    /*Turn/move them rover based on a sequence of commands*/
+    /*Turn/move the rover based on a sequence of commands*/
     followPath(path) {
         path.split("").forEach(element => {
             if (element == 'L') {

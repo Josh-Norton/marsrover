@@ -1,7 +1,7 @@
 const Rover = require('./Rover');
 const Plateau = require('./Plateau');
 
-/*Process input based on task decription
+/*Process input based on task description
   Create a plateau 
   Create/move one or more rovers*/
 function process(input) {
