@@ -1,0 +1,14 @@
+{
+  "name": "marsrover",
+  "version": "1.0.0",
+  "description": "Programming test for Kitomba",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha || true"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^6.2.0"
+  }
+}
