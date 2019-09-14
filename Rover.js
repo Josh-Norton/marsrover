@@ -1,15 +1,5 @@
-/*Compass directions mapped to degrees*/
-directions = {
-    N: 0,
-    E: 90,
-    S: 180,
-    W: 270
-};
-
-/*Get object key corresponding to value*/
-function getKeyByValue(object, value) {
-    return Object.keys(object).find(key => object[key] === value);
-}
+const directions = require('./directions');
+const helper = require('./helper');
 
 /*Class that models a rover based on the task description*/
 class Rover {
@@ -43,7 +33,7 @@ class Rover {
 
     /*List the details of the rover in the format "x y direction"*/
     details() {
-        return this.x.toString() + " " + this.y.toString() + " " + getKeyByValue(directions, this.direction);
+        return this.x.toString() + " " + this.y.toString() + " " + helper.getKeyByValue(directions, this.direction);
     }
 
     /*Turn/move them rover based on a sequence of commands*/
